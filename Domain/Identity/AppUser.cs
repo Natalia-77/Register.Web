@@ -16,7 +16,7 @@ namespace Domain.Identity
         //public string Password { get; set; }
         //[StringLength(100)]
         //public string ConfirmPassword { get; set; }
-        [StringLength(100)]
+        [StringLength(500)]
         public string Photo { get; set; }
         public virtual ICollection<AppUserRole> UserRoles { get; set; }
     }

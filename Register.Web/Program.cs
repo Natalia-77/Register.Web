@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Register.Web.Mapper;
 using Register.Web.Models;
 using Register.Web.Seeder;
@@ -71,6 +73,12 @@ builder.Services.AddControllersWithViews().AddFluentValidation();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddTransient<IValidator<RegisterViewModel>, UserValidator>();
 builder.Services.AddAutoMapper(typeof(UserProfile));
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Include;
+    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+});
 builder.Services.AddSwaggerGen((SwaggerGenOptions o) =>
 {
     o.SwaggerDoc("v1", new OpenApiInfo
@@ -80,6 +88,7 @@ builder.Services.AddSwaggerGen((SwaggerGenOptions o) =>
         Title = "Video player example"
     });
 });
+builder.Services.AddCors();
 
 var app = builder.Build();
 

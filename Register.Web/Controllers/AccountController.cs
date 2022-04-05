@@ -6,9 +6,7 @@ using Register.Web.Constants;
 using Register.Web.Helper;
 using Register.Web.Models;
 using Register.Web.Services;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Runtime.Versioning;
+
 
 namespace Register.Web.Controllers
 {
@@ -31,16 +29,19 @@ namespace Register.Web.Controllers
             _roleManager = roleManager;
             _tokenService = tokenService;
         }
-        [SupportedOSPlatform("windows")]
+
+        //[SupportedOSPlatform("windows")]
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterViewModel model)
         {
-            var dir = Directory.GetCurrentDirectory();
-            var dirSave = Path.Combine(dir, "images");
-            var imageName = Path.GetRandomFileName() + ".jpg";
-            var imageSaveFolder = Path.Combine(dirSave, imageName);
-            imageSaveFolder.Base64ToImage(model.Photo);
+           
+                var dir = Directory.GetCurrentDirectory();
+                var dirSave = Path.Combine(dir, "images");
+                var imageName = Path.GetRandomFileName() + ".jpg";
+                var imageSaveFolder = Path.Combine(dirSave, imageName);
+                imageSaveFolder.Base64ToImage(model.Photo);           
+            
                       
             try
             {
@@ -77,6 +78,24 @@ namespace Register.Web.Controllers
                 return BadRequest(new { message = "Error database" });
             }
 
+        }
+
+        [HttpGet]
+        [Route("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        {
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+            if (!result.Succeeded)
+            {
+                return BadRequest(new { message = " Something  wrong..." });
+            }
+
+            return Ok(new
+            {
+                token = _tokenService.CreateToken(user)
+            });
         }
 
     }

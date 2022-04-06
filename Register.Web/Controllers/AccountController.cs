@@ -80,7 +80,7 @@ namespace Register.Web.Controllers
 
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {

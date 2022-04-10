@@ -86,10 +86,14 @@ namespace Register.Web.Controllers
         {
 
             var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return BadRequest(new { message = "User does not exist!"});
+            }
             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
             if (!result.Succeeded)
             {
-                return BadRequest(new { message = " Something  wrong..." });
+                return BadRequest(new { message = "Something  wrong..." });
             }
 
             return Ok(new

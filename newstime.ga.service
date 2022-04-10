@@ -3,7 +3,7 @@ Description=newstime.ga
 
 [Service]
 WorkingDirectory=/var/www/newstime.ga
-ExecStart=/usr/bin/dotnet Register.Web.dll --urls=http://localhost:5021
+ExecStart=/usr/bin/dotnet Register.Web.dll --urls=https://localhost:7875
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10

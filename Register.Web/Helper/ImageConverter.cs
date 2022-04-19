@@ -5,7 +5,7 @@ using System.Runtime.Versioning;
 
 namespace Register.Web.Helper
 {
-    [SupportedOSPlatform("windows")]
+    //[SupportedOSPlatform("windows")]
     public static class ImageConverter
     {      
 

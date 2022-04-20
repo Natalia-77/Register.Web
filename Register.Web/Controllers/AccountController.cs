@@ -1,4 +1,5 @@
-﻿using Domain.Identity;
+﻿using AutoMapper;
+using Domain.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,7 @@ using Register.Web.Constants;
 using Register.Web.Helper;
 using Register.Web.Models;
 using Register.Web.Services;
-
+using System.Drawing.Imaging;
 
 namespace Register.Web.Controllers
 {
@@ -14,16 +15,19 @@ namespace Register.Web.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IJWTConfig _tokenService;
 
-        public AccountController(UserManager<AppUser> userManager,
+        public AccountController(IMapper mapper,
+            UserManager<AppUser> userManager,
                                 SignInManager<AppUser> signInManager,
                                 RoleManager<AppRole> roleManager,
                                 IJWTConfig tokenService)
         {
+            _mapper = mapper;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
@@ -35,14 +39,15 @@ namespace Register.Web.Controllers
         [Route("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterViewModel model)
         {
-           
-                var dir = Directory.GetCurrentDirectory();
-                var dirSave = Path.Combine(dir, "images");
-                var imageName = Path.GetRandomFileName() + ".jpg";
-                var imageSaveFolder = Path.Combine(dirSave, imageName);
-                imageSaveFolder.Base64ToImage(model.Photo);           
-            
-                      
+            var img = ImageConverter.FromBase64StringToImage(model.Photo);
+            string randomFilename = Path.GetRandomFileName() + ".jpg";
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "images", randomFilename);
+            img.Save(dir, ImageFormat.Jpeg);
+            var user = _mapper.Map<AppUser>(model);
+            user.Photo = randomFilename;
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+
             try
             {
                 var role = new AppRole
@@ -51,15 +56,6 @@ namespace Register.Web.Controllers
                 };
                 var result1 = _roleManager.CreateAsync(role).Result;
 
-                var user = new AppUser
-                {
-                    Email = model.Email,
-                    UserName = model.Name,
-                    Photo =imageName
-
-                };
-
-                var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (!result.Succeeded)
                     return BadRequest(new { message = result.Errors });
@@ -77,7 +73,6 @@ namespace Register.Web.Controllers
             {
                 return BadRequest(new { message = "Error database" });
             }
-
         }
 
         [HttpPost]

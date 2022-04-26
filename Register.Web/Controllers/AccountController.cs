@@ -23,13 +23,16 @@ namespace Register.Web.Controllers
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IJWTConfig _tokenService;
         private readonly AppDbContext _context;
+        private readonly IHostEnvironment _host;
+
 
         public AccountController(IMapper mapper,
                                 UserManager<AppUser> userManager,
                                 SignInManager<AppUser> signInManager,
                                 RoleManager<AppRole> roleManager,
                                 IJWTConfig tokenService,
-                                AppDbContext context)
+                                AppDbContext context,
+                                IHostEnvironment host)
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -37,6 +40,7 @@ namespace Register.Web.Controllers
             _roleManager = roleManager;
             _tokenService = tokenService;
             _context = context;
+            _host = host;
         }
 
         //[SupportedOSPlatform("windows")]
@@ -124,6 +128,70 @@ namespace Register.Web.Controllers
 
             return Ok(res);
         }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> UpdateUser([FromForm] UpdateUserModel usermodel, int id)
+        {
+            var res = _context.Users.FirstOrDefault(x => x.Id == id);
+
+            if (usermodel == null)
+            {
+                return BadRequest(new { message = "No model data" });
+            }
+
+            if(!string.IsNullOrEmpty(usermodel.Email))
+            {
+                res.Email = usermodel.Email;
+                
+            }
+            if (!string.IsNullOrEmpty(usermodel.Name))
+            {
+                res.UserName = usermodel.Name;
+            }
+           
+           
+
+            if (usermodel.Photo != null)
+            {
+                var img = ImageConverter.FromBase64StringToImage(usermodel.Photo);
+                string randomFilename = Path.GetRandomFileName() + ".jpg";
+                var dir = Path.Combine(Directory.GetCurrentDirectory(), "images", randomFilename);
+                img.Save(dir, ImageFormat.Jpeg);
+
+                var oldImage = res.Photo;
+                string fol = "\\images\\";
+                string contentRootPath = _host.ContentRootPath + fol + oldImage;
+
+                if (System.IO.File.Exists(contentRootPath))
+                {
+                    System.IO.File.Delete(contentRootPath);
+                }
+                res.Photo = randomFilename;
+            }
+            _context.SaveChanges();
+
+            return Ok(new { message = "User updated" });
+
+        }
+
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var res = _context.Users.FirstOrDefault(x => x.Id == id);
+            if (res == null)
+            {
+                return BadRequest(new { message = "Check id!" });
+            }
+
+            _context.Users.Remove(res);
+            _context.SaveChanges();
+            return Ok(new { message = "User deleted" });
+        }
+
+
 
     }
 }

@@ -131,7 +131,7 @@ namespace Register.Web.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> UpdateUser([FromForm] UpdateUserModel usermodel, int id)
+        public IActionResult UpdateUser( int id,[FromBody] UpdateUserModel usermodel)
         {
             var res = _context.Users.FirstOrDefault(x => x.Id == id);
 
@@ -140,19 +140,17 @@ namespace Register.Web.Controllers
                 return BadRequest(new { message = "No model data" });
             }
 
-            if(!string.IsNullOrEmpty(usermodel.Email))
+            if (!string.IsNullOrEmpty(usermodel.Email))
             {
                 res.Email = usermodel.Email;
-                
+
             }
             if (!string.IsNullOrEmpty(usermodel.Name))
             {
                 res.UserName = usermodel.Name;
             }
-           
-           
 
-            if (usermodel.Photo != null)
+            if (!string.IsNullOrEmpty(usermodel.Photo))
             {
                 var img = ImageConverter.FromBase64StringToImage(usermodel.Photo);
                 string randomFilename = Path.GetRandomFileName() + ".jpg";

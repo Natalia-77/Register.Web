@@ -150,6 +150,7 @@ namespace Register.Web.Controllers
                 res.UserName = usermodel.Name;
             }
 
+
             if (!string.IsNullOrEmpty(usermodel.Photo))
             {
                 var img = ImageConverter.FromBase64StringToImage(usermodel.Photo);

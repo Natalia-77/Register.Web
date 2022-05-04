@@ -10,11 +10,11 @@ namespace Register.Web.Helper
             using (var scope = app.Services.CreateScope())
             {
 
-                var path = Path.Combine(System.Environment.CurrentDirectory, "Logs");
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
+                //var path = Path.Combine(System.Environment.CurrentDirectory, "Logs");
+                //if (!Directory.Exists(path))
+                //{
+                //    Directory.CreateDirectory(path);
+                //}
                 //var fileLog = Path.Combine(path, "log-{Date}.txt");
                 var services = scope.ServiceProvider;
                 var loggerFactory = services.GetRequiredService<ILoggerFactory>();               

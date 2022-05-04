@@ -149,3 +149,14 @@ ORDER BY \"MigrationId\";" (0723d8ff)
  => 
 2022-05-04 21:42:16.489 [INF] Initializing Serilog....
 2022-05-04 21:42:46.350 [Information] Initializing Serilog....
+2022-05-04 21:53:23.833 [Information] Initializing Serilog....
+2022-05-04 22:59:22.486 [Information] Migration is on progress
+
+2022-05-04 22:59:45.903 [Warning] Failed to determine the https port for redirect.
+2022-05-04 22:59:46.029 [Information] Login user 
+2022-05-04 23:00:23.123 [Information] Migration is on progress
+
+2022-05-04 23:00:50.217 [Information] Migration is on progress
+
+2022-05-04 23:01:06.644 [Warning] Failed to determine the https port for redirect.
+2022-05-04 23:01:06.771 [Information] Login user 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Register.Web.Constants;
 using Register.Web.Helper;
 using Register.Web.Models;
@@ -24,7 +25,7 @@ namespace Register.Web.Controllers
         private readonly IJWTConfig _tokenService;
         private readonly AppDbContext _context;
         private readonly IHostEnvironment _host;
-
+        private readonly ILogger <AccountController> _logger;
 
         public AccountController(IMapper mapper,
                                 UserManager<AppUser> userManager,
@@ -32,7 +33,8 @@ namespace Register.Web.Controllers
                                 RoleManager<AppRole> roleManager,
                                 IJWTConfig tokenService,
                                 AppDbContext context,
-                                IHostEnvironment host)
+                                IHostEnvironment host,
+                                ILogger <AccountController> logger)
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -41,6 +43,7 @@ namespace Register.Web.Controllers
             _tokenService = tokenService;
             _context = context;
             _host = host;
+            _logger = logger;
         }
 
         //[SupportedOSPlatform("windows")]
@@ -90,6 +93,8 @@ namespace Register.Web.Controllers
         {
 
             var user = await _userManager.FindByEmailAsync(model.Email);
+        
+            _logger.LogInformation("Login user ");
             if (user == null)
             {
                 return BadRequest(new { message = "User does not exist!" });
@@ -110,6 +115,7 @@ namespace Register.Web.Controllers
         [Route("users")]
         public async Task<IActionResult> GetUsersList()
         {
+            _logger.LogInformation("Login user ");
             var users = await _context.Users.Select(video => _mapper.Map<UserViewModel>(video)).ToListAsync();
             return Ok(users);
         }

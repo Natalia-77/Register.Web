@@ -29,7 +29,7 @@ namespace Register.Web.Helper
                      .ReadFrom.Configuration(configSerilog)
                      .CreateLogger();
 
-                log.Information("Initializing Serilog....");
+               // log.Information("Initializing Serilog....");
                 //назва секції,з якої потрібно обтрати дані для подальшого логування,запису логів і т.д...
                 loggerFactory.AddFile(configSerilog.GetSection("Serilog"));
 

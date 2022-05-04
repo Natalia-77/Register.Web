@@ -83,6 +83,12 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Include;
     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
 });
+var logger = new LoggerConfiguration()
+  .ReadFrom.Configuration(builder.Configuration)
+  .Enrich.FromLogContext()
+  .CreateLogger();
+//builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 builder.Services.AddSwaggerGen((SwaggerGenOptions o) =>
 {
     o.SwaggerDoc("v1", new OpenApiInfo
@@ -96,12 +102,12 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.LoggerMessage();
+//app.LoggerMessage();
 
 //if (app.Environment.IsDevelopment())
 //{
 
-    app.UseSwagger();
+app.UseSwagger();
     app.UseSwaggerUI((SwaggerUIOptions c) =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Android");

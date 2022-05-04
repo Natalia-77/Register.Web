@@ -174,7 +174,15 @@ namespace Register.Web.Controllers
 
         }
 
-
+        /// <summary>
+        /// Delete user by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Sample request:
+        /// "id":""
+        /// </remarks>
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> DeleteUser(int id)

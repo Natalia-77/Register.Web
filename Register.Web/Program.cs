@@ -10,19 +10,23 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Register.Web.Helper;
 using Register.Web.Mapper;
 using Register.Web.Models;
 using Register.Web.Seeder;
 using Register.Web.Services;
 using Register.Web.Services.Implements;
 using Register.Web.Validation;
+using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Text;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
+
 
 builder.Services.AddDbContext<AppDbContext>((DbContextOptionsBuilder options) =>
 
@@ -85,12 +89,14 @@ builder.Services.AddSwaggerGen((SwaggerGenOptions o) =>
     {
         Description = "Swagger",
         Version = "v1",
-        Title = "Video player example"
+        Title = "API for Android example"
     });
 });
 builder.Services.AddCors();
 
 var app = builder.Build();
+
+app.LoggerMessage();
 
 //if (app.Environment.IsDevelopment())
 //{
@@ -98,7 +104,7 @@ var app = builder.Build();
     app.UseSwagger();
     app.UseSwaggerUI((SwaggerUIOptions c) =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Player");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Android");
     });
 //}
 

@@ -1,0 +1,216 @@
+2022-05-03T21:33:44.6094812+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T21:33:46.6199350+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T21:33:47.8010465+03:00  [INF] Executed DbCommand ("102"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T21:33:48.1703840+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T21:33:48.2303656+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T21:33:48.2471706+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T21:33:48.5060045+03:00  [INF] Executed DbCommand ("48"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T21:33:48.5615046+03:00  [INF] Executed DbCommand ("52"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T21:33:49.1485074+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T21:33:49.1487260+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T21:33:49.1488048+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T21:33:49.1488500+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T21:35:21.9780285+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T21:35:22.8123170+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T21:35:24.4452534+03:00  [INF] Executed DbCommand ("260"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T21:35:24.8364703+03:00  [INF] Executed DbCommand ("94"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T21:35:24.9395368+03:00  [INF] Executed DbCommand ("94"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T21:35:24.9566112+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T21:35:25.2332667+03:00  [INF] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T21:35:25.3664910+03:00  [INF] Executed DbCommand ("129"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T21:35:25.4802645+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T21:35:25.4803811+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T21:35:25.4804310+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T21:35:25.4804574+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T22:56:48.3224227+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T22:56:49.6406429+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T22:56:50.7439127+03:00  [INF] Executed DbCommand ("124"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T22:56:51.1138816+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T22:56:51.1727656+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T22:56:51.1900301+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T22:56:51.4131982+03:00  [INF] Executed DbCommand ("48"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T22:56:51.4655006+03:00  [INF] Executed DbCommand ("48"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T22:56:51.5772284+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T22:56:51.5773481+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T22:56:51.5774002+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T22:56:51.5774258+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T22:58:25.9739086+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T22:58:26.8677891+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T22:58:28.0597877+03:00  [INF] Executed DbCommand ("186"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T22:58:28.4183347+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T22:58:28.4899433+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T22:58:28.5289740+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T22:58:28.7777825+03:00  [INF] Executed DbCommand ("45"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T22:58:28.8284013+03:00  [INF] Executed DbCommand ("47"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T22:58:28.9426836+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T22:58:28.9427935+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T22:58:28.9428327+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T22:58:28.9428680+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T23:01:03.1220448+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T23:01:04.0393709+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T23:01:05.4353562+03:00  [INF] Executed DbCommand ("174"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:01:05.7823426+03:00  [INF] Executed DbCommand ("53"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:01:05.8439529+03:00  [INF] Executed DbCommand ("52"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T23:01:05.8613140+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T23:01:06.0835621+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T23:01:06.1380888+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T23:01:06.2771596+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T23:01:06.2772912+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T23:01:06.2773530+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T23:01:06.2773804+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T23:10:58.9836683+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T23:11:00.1502055+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T23:11:01.4420456+03:00  [INF] Executed DbCommand ("102"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:11:01.8100179+03:00  [INF] Executed DbCommand ("52"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:11:01.8738759+03:00  [INF] Executed DbCommand ("55"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T23:11:01.8916211+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T23:11:02.1497003+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T23:11:02.2020605+03:00  [INF] Executed DbCommand ("48"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T23:11:02.3180584+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T23:11:02.3181816+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T23:11:02.3182290+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T23:11:02.3182516+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T23:22:05.5086659+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T23:22:06.6528271+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T23:22:07.9475411+03:00  [INF] Executed DbCommand ("104"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:22:08.3673745+03:00  [INF] Executed DbCommand ("97"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:22:08.4270985+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T23:22:08.4445537+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T23:22:08.7013054+03:00  [INF] Executed DbCommand ("49"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T23:22:08.7537801+03:00  [INF] Executed DbCommand ("47"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T23:22:08.8787922+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T23:22:08.8789058+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T23:22:08.8789600+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T23:22:08.8789896+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T23:31:17.1045776+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T23:31:18.1897242+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T23:31:24.7865913+03:00  [INF] Executed DbCommand ("103"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:31:25.1390086+03:00  [INF] Executed DbCommand ("53"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:31:25.2008056+03:00  [INF] Executed DbCommand ("53"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T23:31:25.2174162+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T23:31:25.4319861+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T23:31:25.4859397+03:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T23:31:25.5972920+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T23:31:25.5974345+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T23:31:25.5975005+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T23:31:25.5975310+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)
+2022-05-03T23:48:50.1814898+03:00  [INF] Migration is on progress
+ (e7e48ef6)
+2022-05-03T23:48:50.9792057+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppDbContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-05-03T23:48:52.2072215+03:00  [INF] Executed DbCommand ("193"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:48:52.6050903+03:00  [INF] Executed DbCommand ("91"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-05-03T23:48:52.6784553+03:00  [INF] Executed DbCommand ("54"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-05-03T23:48:52.7159033+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-05-03T23:48:53.0922918+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-05-03T23:48:53.1471545+03:00  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-05-03T23:48:53.3385498+03:00  [INF] Now listening on: "http://127.0.0.1:5021" (d826f4b8)
+2022-05-03T23:48:53.3387100+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-05-03T23:48:53.3387905+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-05-03T23:48:53.3388327+03:00  [INF] Content root path: "D:\Natalia\Project1\AndroidRegister.Web\Register.Web\Register.Web\" (b5d60022)

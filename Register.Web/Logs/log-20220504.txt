@@ -160,3 +160,36 @@ ORDER BY \"MigrationId\";" (0723d8ff)
 
 2022-05-04 23:01:06.644 [Warning] Failed to determine the https port for redirect.
 2022-05-04 23:01:06.771 [Information] Login user 
+2022-05-05 22:59:36.344 [Information] Migration is on progress
+
+2022-05-06 17:11:05.236 [Information] Migration is on progress
+
+2022-05-06 17:11:39.974 [Warning] Failed to determine the https port for redirect.
+2022-05-06 17:11:40.809 [Information] Login user 
+2022-05-06 17:12:42.700 [Information] Migration is on progress
+
+2022-05-06 19:46:49.412 [Information] Migration is on progress
+
+2022-05-06 19:47:18.773 [Warning] Failed to determine the https port for redirect.
+2022-05-06 20:52:52.021 [Information] Migration is on progress
+
+2022-05-06 20:53:29.424 [Warning] Failed to determine the https port for redirect.
+2022-05-06 20:53:29.899 [Information] Login userant@gmail.com
+2022-05-06 20:55:27.352 [Information] Get all user list at06.05.2022 0:00:00 
+2022-05-06 21:21:09.116 [Information] Migration is on progress
+
+2022-05-06 21:21:22.137 [Warning] Failed to determine the https port for redirect.
+2022-05-06 21:21:22.265 [Information] Get all user list at 06.05.2022 
+2022-05-06 21:26:04.387 [Information] Migration is on progress
+
+2022-05-06 21:26:45.120 [Warning] Failed to determine the https port for redirect.
+2022-05-06 21:26:45.248 [Information] Get all user list at 06.05.2022 
+2022-05-06 21:38:00.534 [Information] Migration is on progress
+
+2022-05-06 21:38:47.116 [Information] Migration is on progress
+
+2022-05-06 21:38:55.587 [Warning] Failed to determine the https port for redirect.
+2022-05-06 21:38:55.720 [Information] Get all user list at 06.05.2022 
+2022-05-06 21:42:40.019 [Information] Migration is on progress
+
+2022-05-06 21:42:57.407 [Information] Get all user list at 06.05.2022 

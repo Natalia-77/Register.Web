@@ -3,6 +3,7 @@ using Domain.Identity;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -12,6 +13,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Register.Web.Helper;
 using Register.Web.Mapper;
+using Register.Web.Middlewares;
 using Register.Web.Models;
 using Register.Web.Seeder;
 using Register.Web.Services;
@@ -83,12 +85,16 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Include;
     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
 });
+
+//Add services for logger
 var logger = new LoggerConfiguration()
   .ReadFrom.Configuration(builder.Configuration)
   .Enrich.FromLogContext()
   .CreateLogger();
 //builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
+
+
 builder.Services.AddSwaggerGen((SwaggerGenOptions o) =>
 {
     o.SwaggerDoc("v1", new OpenApiInfo
@@ -98,9 +104,16 @@ builder.Services.AddSwaggerGen((SwaggerGenOptions o) =>
         Title = "API for Android example"
     });
 });
+
+
 builder.Services.AddCors();
 
 var app = builder.Build();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 //app.LoggerMessage();
 
@@ -131,13 +144,18 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/images"
 });
 
-app.UseHttpsRedirection();
 app.UseRouting();
 
 // Authentication & Authorization
 app.UseAuthentication();
 app.UseAuthorization();
+
+//Add data into database
 await app.SeedData();
+
+//Add custom exception handle errors
+app.UseCustomExceptionHandler();
+
 app.UseCors(x => x
             .AllowAnyOrigin()
             .AllowAnyMethod()

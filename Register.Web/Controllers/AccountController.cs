@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Register.Web.Constants;
+using Register.Web.CustomExceptions;
 using Register.Web.Helper;
 using Register.Web.Models;
 using Register.Web.Services;
@@ -59,32 +60,27 @@ namespace Register.Web.Controllers
             user.Photo = randomFilename;
             var result = await _userManager.CreateAsync(user, model.Password);
 
-
-            try
-            {
                 var role = new AppRole
                 {
                     Name = Roles.User
                 };
                 var result1 = _roleManager.CreateAsync(role).Result;
 
-
                 if (!result.Succeeded)
-                    return BadRequest(new { message = result.Errors });
+                    throw new ServerErrorsException("Server error ");
 
                 await _userManager.AddToRoleAsync(user, role.Name);
 
                 await _signInManager.SignInAsync(user, isPersistent: false);
 
+                 DateTime dateTime = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day);
+                _logger.LogInformation($"New user was created{string.Format("{0:d}", dateTime)}");
+
                 return Ok(new
                 {
                     token = _tokenService.CreateToken(user)
                 });
-            }
-            catch
-            {
-                return BadRequest(new { message = "Error database" });
-            }
+           
         }
 
         [HttpPost]
@@ -92,21 +88,25 @@ namespace Register.Web.Controllers
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
 
-            var user = await _userManager.FindByEmailAsync(model.Email);
-        
-            _logger.LogInformation("Login user ");
+            var user = await _userManager.FindByEmailAsync(model.Email);        
+
             if (user == null)
-            {
-                return BadRequest(new { message = "User does not exist!" });
+            {                
+                throw new ResultEmptyException("User does not exist!");               
             }
+
             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+
+            _logger.LogInformation($"Login user-> {model.Email}");
+
             if (!result.Succeeded)
             {
-                return BadRequest(new { message = "Something  wrong..." });
+                throw new ServerErrorsException("Server error ");
             }
 
             return Ok(new
             {
+
                 token = _tokenService.CreateToken(user)
             });
         }
@@ -115,7 +115,8 @@ namespace Register.Web.Controllers
         [Route("users")]
         public async Task<IActionResult> GetUsersList()
         {
-            _logger.LogInformation("Login user ");
+            DateTime dateTime = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day);           
+            _logger.LogInformation($"Get all user list at {string.Format("{0:d}", dateTime)} ");
             var users = await _context.Users.Select(video => _mapper.Map<UserViewModel>(video)).ToListAsync();
             return Ok(users);
         }
@@ -127,9 +128,11 @@ namespace Register.Web.Controllers
             var res = await _context.Users.Where(x => x.Id == id)
                       .Select(userItem => _mapper.Map<UserViewModel>(userItem)).FirstAsync();
 
+            _logger.LogInformation($"Get user {res.Name} info");
+
             if (res == null)
             {
-                return BadRequest(new { message = "Запису з таким id не існує" });
+                throw new ResultEmptyException("User does not exist!");
             }
 
             return Ok(res);
@@ -143,7 +146,7 @@ namespace Register.Web.Controllers
 
             if (usermodel == null)
             {
-                return BadRequest(new { message = "No model data" });
+                throw new ResultEmptyException("User model empty");
             }
 
             if (!string.IsNullOrEmpty(usermodel.Email))
@@ -174,6 +177,8 @@ namespace Register.Web.Controllers
                 }
                 res.Photo = randomFilename;
             }
+            _logger.LogInformation($"User {res.Email} was updated");
+
             _context.SaveChanges();
 
             return Ok(new { message = "User updated" });
@@ -196,9 +201,9 @@ namespace Register.Web.Controllers
             var res = _context.Users.FirstOrDefault(x => x.Id == id);
             if (res == null)
             {
-                return BadRequest(new { message = "Check id!" });
+                throw new ResultEmptyException("User does not exist!");
             }
-
+            _logger.LogInformation($"User {res.Email} was deleted");
             _context.Users.Remove(res);
             _context.SaveChanges();
             return Ok(new { message = "User deleted" });

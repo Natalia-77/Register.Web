@@ -1,0 +1,115 @@
+2022-05-07 16:56:06.048 [Information] Migration is on progress
+
+2022-05-07 16:56:11.306 [Error] Error seed database -> Failed to connect to 127.0.0.1:5021
+2022-05-07 16:56:58.363 [Information] Migration is on progress
+
+2022-05-07 16:57:03.812 [Error] Error seed database -> Failed to connect to 127.0.0.1:5432
+2022-05-07 16:57:31.306 [Information] Migration is on progress
+
+2022-05-07 17:02:35.100 [Information] Migration is on progress
+
+2022-05-07 17:02:45.016 [Information] Get all user list at 07.05.2022 
+2022-05-07 17:33:36.789 [Information] Migration is on progress
+
+2022-05-07 17:33:42.219 [Error] Error seed database -> Failed to connect to 127.0.0.1:5432
+2022-05-07 17:39:54.281 [Information] Migration is on progress
+
+2022-05-07 17:39:55.986 [Error] Error seed database -> Received unknown response Y for SSLRequest (expecting S or N)
+2022-05-07 17:40:14.009 [Information] Migration is on progress
+
+2022-05-07 17:40:18.924 [Error] Error seed database -> Failed to connect to 127.0.0.1:5432
+2022-05-07 17:47:43.576 [Information] Migration is on progress
+
+2022-05-07 17:47:44.716 [Error] Error seed database -> Received unknown response Y for SSLRequest (expecting S or N)
+2022-05-07 17:50:09.146 [Information] Migration is on progress
+
+2022-05-07 17:50:10.021 [Error] Error seed database -> Received unknown response Y for SSLRequest (expecting S or N)
+2022-05-07 18:03:01.973 [Information] Migration is on progress
+
+2022-05-07 18:03:03.484 [Error] Error seed database -> No such host is known.
+2022-05-07 18:28:34.874 [Information] Migration is on progress
+
+2022-05-07 18:28:37.054 [Warning] Role null validation failed: DuplicateRoleName.
+2022-05-07 18:28:46.721 [Information] Get all user list at 07.05.2022 
+2022-05-07 18:31:49.495 [Information] Migration is on progress
+
+2022-05-07 18:31:57.878 [Information] Get all user list at 07.05.2022 
+2022-05-07 19:56:27.010 [Information] Migration is on progress
+
+2022-05-07 19:56:28.168 [Error] Error seed database -> Couldn't set user (Parameter 'user')
+2022-05-07 19:57:11.546 [Information] Migration is on progress
+
+2022-05-07 19:57:12.382 [Error] Error seed database -> Couldn't set user (Parameter 'user')
+2022-05-07 19:57:44.288 [Information] Migration is on progress
+
+2022-05-07 19:57:47.838 [Error] Failed executing DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "AspNetRoles" (
+    "Id" bigint NOT NULL,
+    "Name" varchar(256) NULL,
+    "NormalizedName" varchar(256) NULL,
+    "ConcurrencyStamp" longtext NULL,
+    CONSTRAINT "PK_AspNetRoles" PRIMARY KEY ("Id")
+);
+2022-05-07 19:57:47.897 [Error] Error seed database -> 42704: type "longtext" does not exist
+
+POSITION: 153
+2022-05-07 19:59:45.107 [Information] Migration is on progress
+
+2022-05-07 20:00:03.607 [Information] Get all user list at 07.05.2022 
+2022-05-07 20:00:18.014 [Information] Get all user list at 07.05.2022 
+2022-05-07 20:00:29.556 [Information] Get all user list at 07.05.2022 
+2022-05-07 20:01:54.580 [Information] Migration is on progress
+
+2022-05-07 20:04:23.620 [Warning] Role null validation failed: DuplicateRoleName.
+2022-05-07 20:04:23.995 [Information] New user was created07.05.2022
+2022-05-07 20:04:35.002 [Information] Get all user list at 07.05.2022 
+2022-05-07 20:22:27.589 [Information] Migration is on progress
+
+2022-05-07 20:22:28.954 [Error] Error seed database -> Couldn't set user (Parameter 'user')
+2022-05-07 20:41:16.162 [Information] Migration is on progress
+
+2022-05-07 20:41:16.983 [Error] Error seed database -> Couldn't set user (Parameter 'user')
+2022-05-07 20:42:14.070 [Information] Migration is on progress
+
+2022-05-07 20:42:15.267 [Error] Error seed database -> Couldn't set user (Parameter 'user')
+2022-05-07 20:44:40.526 [Information] Get all user list at 07.05.2022 
+2022-05-07 20:44:40.757 [Error] An exception occurred while iterating over the results of a query for context type 'Domain.AppDbContext'.
+System.ArgumentException: Couldn't set user (Parameter 'user')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedSetter(String keyword, Object value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.GetPoolAndSettings()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.CreateDbCommand(RelationalCommandParameterObject parameterObject, Guid commandId, DbCommandMethod commandMethod)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.ArgumentException: Couldn't set user (Parameter 'user')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedSetter(String keyword, Object value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.GetPoolAndSettings()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.CreateDbCommand(RelationalCommandParameterObject parameterObject, Guid commandId, DbCommandMethod commandMethod)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2022-05-07 20:45:13.692 [Information] Migration is on progress
+
+2022-05-07 20:45:26.990 [Information] Get all user list at 07.05.2022 

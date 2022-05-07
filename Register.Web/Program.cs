@@ -29,10 +29,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration;
 
+//MariaDB connections example
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var server = new MariaDbServerVersion(ServerVersion.AutoDetect(connectionString));
+builder.Services.AddDbContext<AppDbContext>(options =>
+   options.UseMySql(connectionString, server));
 
-builder.Services.AddDbContext<AppDbContext>((DbContextOptionsBuilder options) =>
+//Postgres connection example
+builder.Services.AddDbContext<AppDbContext>(options =>
 
-               options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+         options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+
+
 
 //how use interfaces
 builder.Services.AddScoped<IJWTConfig, JWTConfig>();
@@ -88,10 +96,10 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 //Add services for logger
 var logger = new LoggerConfiguration()
-  .ReadFrom.Configuration(builder.Configuration)
+  .ReadFrom.Configuration(configuration)
   .Enrich.FromLogContext()
   .CreateLogger();
-//builder.Logging.ClearProviders();
+
 builder.Logging.AddSerilog(logger);
 
 
@@ -115,7 +123,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
 
-//app.LoggerMessage();
 
 //if (app.Environment.IsDevelopment())
 //{
